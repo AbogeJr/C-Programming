@@ -33,20 +33,25 @@ int fact(int n){
     else
     return n*fact(n-1);
 }
-/*
+
 void fibonacci(){
-    int num;
+    int num,i;
     printf("Enter the number of Fibonacci numbers needed:\n");
     scanf("%d",&num);
-    printf("%d, %d, ", 0, 1);
-    fib(num-2);
+    for(i=0;i<=num;i++){
+	printf("%d, ",fib(i));
+	}
 }
 int fib(int n){
-    int a=1,b=2,c;
-    
-    
+	if(n==0){
+		return 0;
+	}
+	if(n==1) {
+		return 1;
+	}
+	return fib(n-1)+fib(n-2);
 }
-*/
+
 int main()
 {
     int choice,num1;
@@ -60,9 +65,9 @@ int main()
         factorial();
         break;
        
-//        case 2:
-//        fibonacci();
-//        break;
+        case 2:
+        fibonacci();
+        break;
     }
 
     return 0;
