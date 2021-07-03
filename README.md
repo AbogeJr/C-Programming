@@ -1,5 +1,5 @@
 # C-Programming
-### Documentation of some of my beginner C programming projects (⌐■_■)
+### Documentation of some of my beginner C projects (⌐■_■)
 
 #### 1.Recursion
 ###### FactFib console Application
