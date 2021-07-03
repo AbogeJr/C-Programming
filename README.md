@@ -7,6 +7,7 @@
 * Used recursive functions to print a number of fibonacci numbers (as per user input). 
 * Created a makeshift login system by implementing use of strcmp() function from string.h header file. 
 
+#### 2.Stack
 ###### DS-Stack Console Application
 * Learnt about Stacks as a Data Structure in C.
 * Mastered Last-In-First-Out principle of stacks.
