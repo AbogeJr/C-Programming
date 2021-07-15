@@ -3,13 +3,13 @@
 
 //IMPLEMENTATION OF DOUBLY LINKED LIST
 
-struct node {																						//Node structure
+struct node {	//Node structure
 	struct node * prev;						
 	int data;                                
 	struct node * next;                     
 };
 
-struct node *addToEmpty(struct node * head, int data) {										//Initializes the list (using head pointer)		
+struct node *addToEmpty(struct node * head, int data) {		//Initializes the list (using head pointer)		
 	struct node *temp = (struct node*)malloc(sizeof(struct node));
 	temp->prev=NULL;
 	temp->next=NULL;
@@ -18,7 +18,7 @@ struct node *addToEmpty(struct node * head, int data) {										//Initializes t
 	return head;
 }
 
-struct node *addToBeg(struct node * head, int data) {										//Creates and adds node to the beginning of initialized list (head)
+struct node *addToBeg(struct node * head, int data) {	//Creates and adds node to the beginning of initialized list (head)
 	struct node *temp = (struct node*)malloc(sizeof(struct node));
 	temp->prev = NULL;
 	temp->data = data;
@@ -31,7 +31,7 @@ struct node *addToBeg(struct node * head, int data) {										//Creates and add
 	return head;
 }
 
-struct node *addToEnd(struct node * head, int data) {										//Creates and adds node to the end of initialized list
+struct node *addToEnd(struct node * head, int data) {	//Creates and adds node to the end of initialized list
 	struct node *ptr, *temp = (struct node*)malloc(sizeof(struct node));
 	ptr = head;
 	temp->data=data;
@@ -47,7 +47,7 @@ struct node *addToEnd(struct node * head, int data) {										//Creates and add
 	return head;
 }
 
-struct node * addAfterPos(struct node * head, int data, int position) {						//Creates and adds a node after the specified position		
+struct node * addAfterPos(struct node * head, int data, int position) {	//Creates and adds a node after the specified position		
 	struct node *temp, *temp2;
 	struct node *newNode = (struct node*)malloc(sizeof(struct node));
 	temp = head;
@@ -74,7 +74,7 @@ struct node * addAfterPos(struct node * head, int data, int position) {						//C
 	return head;
 }
 
-struct node *createList(struct node *head) {						//Intergrates addToEmpty() and addToEnd() functions to create a doubly linked list
+struct node *createList(struct node *head) {	//Intergrates addToEmpty() and addToEnd() functions to create a doubly linked list
 	int data, i, n;
 	
 	printf("Enter number of elements in list:\n");
@@ -96,7 +96,7 @@ struct node *createList(struct node *head) {						//Intergrates addToEmpty() and
 	return head;
 }
 
-void displayNodes(struct node * head) {											//Prints the data of the nodes in the list
+void displayNodes(struct node * head) {	   //Prints the data of the nodes in the list
 	if(head==NULL) {
 		printf("No Nodes detected!\n\n");
 	}
@@ -113,7 +113,7 @@ void displayNodes(struct node * head) {											//Prints the data of the nodes
 }
 
 int main() {
-	struct node* head = NULL;													//Initializing the head pointer. (To be used in the functions)
+	struct node* head = NULL;			//Initializing the head pointer. (To be used in the functions)
 	int choice, data, pos;	
 	printf("###Doubly linked list generator###\n\n");
 start:	
@@ -150,7 +150,7 @@ start:
 			printf("\nINVALID CHOICE!\n\n");
 			break;				
 	}
-goto start; 																		//Returns functionality to the beginning of the program
+goto start; 		//Returns functionality to the beginning of the program
 	return 0;
 }
 
