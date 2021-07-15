@@ -3,13 +3,13 @@
 
 //IMPLEMENTATION OF DOUBLY LINKED LIST
 
-struct node {
+struct node {											//Node structure
 	struct node * prev;						
 	int data;                                
 	struct node * next;                     
 };
 
-struct node *addToEmpty(struct node * head, int data) {
+struct node *addToEmpty(struct node * head, int data) {						//Initializes the linked list
 	struct node *temp = (struct node*)malloc(sizeof(struct node));
 	temp->prev=NULL;
 	temp->next=NULL;
@@ -18,7 +18,7 @@ struct node *addToEmpty(struct node * head, int data) {
 	return head;
 }
 
-struct node *addToBeg(struct node * head, int data) {
+struct node *addToBeg(struct node * head, int data) {						//Adds a node to the beginning of initialized linked list
 	struct node *temp = (struct node*)malloc(sizeof(struct node));
 	temp->prev = NULL;
 	temp->data = data;
@@ -31,7 +31,7 @@ struct node *addToBeg(struct node * head, int data) {
 	return head;
 }
 
-struct node *addToEnd(struct node *head, int data) {
+struct node *addToEnd(struct node *head, int data) {						//Adds a node to the end of an initialized linked list
 	struct node *ptr, *temp = (struct node*)malloc(sizeof(struct node));
 	ptr = head;
 	temp->data=data;
@@ -47,7 +47,7 @@ struct node *addToEnd(struct node *head, int data) {
 	return head;
 }
 
-struct node * addAfterPos(struct node * head, int data, int position) {
+struct node * addAfterPos(struct node * head, int data, int position) {				//Adds a node after stated position in the list
 	struct node *temp, *temp2;
 	struct node *newNode = (struct node*)malloc(sizeof(struct node));
 	temp = head;
@@ -74,7 +74,7 @@ struct node * addAfterPos(struct node * head, int data, int position) {
 	return head;
 }
 
-void displayNodes(struct node * head) {		
+void displayNodes(struct node * head) {								//Prints the linked list
 	struct node * ptr;
 	ptr = head;
 	while(ptr!=NULL) {
@@ -83,7 +83,7 @@ void displayNodes(struct node * head) {
 	}
 }
 
-int main() {
+int main() {				//Samples
 	struct node *head = (struct node*)malloc(sizeof(struct node));
 	head = addToEmpty(head, 25);
 	head = addToEnd(head, 34);
