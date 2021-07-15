@@ -47,7 +47,34 @@ struct node *addToEnd(struct node *head, int data) {
 	return head;
 }
 
-void displayNodes(struct node * head) {
+struct node * addAfterPos(struct node * head, int data, int position) {
+	struct node *temp, *temp2;
+	struct node *newNode = (struct node*)malloc(sizeof(struct node));
+	temp = head;
+	temp2 = NULL;
+	newNode->data=data;
+	newNode->next=NULL;
+	newNode->prev=NULL;
+	
+	while(position!=1) {
+		temp = temp->next;
+		position--;
+	}
+	if(temp->next==NULL) {
+		temp->next=newNode;
+		newNode->prev=temp;
+	}
+	else{
+	temp2 = temp->next;
+	temp->next = newNode;
+	temp2->prev = newNode;
+	newNode->prev=temp;
+	newNode->next=temp2;
+	}
+	return head;
+}
+
+void displayNodes(struct node * head) {		
 	struct node * ptr;
 	ptr = head;
 	while(ptr!=NULL) {
