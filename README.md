@@ -25,7 +25,7 @@
 
 #### 3.Linked list
 ###### linked-list(Single linked list) & doubly linked list
-* Learnt about the use of *struct* in C to construct nodes.
+* Learnt about the use of **struct** in C to construct nodes.
 * Learnt more about functional programming, dynamic programming and memory allocation.
 * Created and implemented Linked list functions for:
   * Add node to beginning/end of list.
