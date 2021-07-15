@@ -3,13 +3,13 @@
 
 //IMPLEMENTATION OF DOUBLY LINKED LIST
 
-struct node {											//Node structure
+struct node {
 	struct node * prev;						
 	int data;                                
 	struct node * next;                     
 };
 
-struct node *addToEmpty(struct node * head, int data) {						//Initializes the linked list
+struct node *addToEmpty(struct node * head, int data) {
 	struct node *temp = (struct node*)malloc(sizeof(struct node));
 	temp->prev=NULL;
 	temp->next=NULL;
@@ -18,7 +18,7 @@ struct node *addToEmpty(struct node * head, int data) {						//Initializes the l
 	return head;
 }
 
-struct node *addToBeg(struct node * head, int data) {						//Adds a node to the beginning of initialized linked list
+struct node *addToBeg(struct node * head, int data) {
 	struct node *temp = (struct node*)malloc(sizeof(struct node));
 	temp->prev = NULL;
 	temp->data = data;
@@ -31,11 +31,7 @@ struct node *addToBeg(struct node * head, int data) {						//Adds a node to the 
 	return head;
 }
 
-<<<<<<< HEAD
 struct node *addToEnd(struct node * head, int data) {
-=======
-struct node *addToEnd(struct node *head, int data) {						//Adds a node to the end of an initialized linked list
->>>>>>> d3421dd2965318d5c633a406d0acae7e9810e8c6
 	struct node *ptr, *temp = (struct node*)malloc(sizeof(struct node));
 	ptr = head;
 	temp->data=data;
@@ -51,11 +47,7 @@ struct node *addToEnd(struct node *head, int data) {						//Adds a node to the e
 	return head;
 }
 
-<<<<<<< HEAD
 struct node * addAfterPos(struct node * head, int data, int position) {
-=======
-struct node * addAfterPos(struct node * head, int data, int position) {				//Adds a node after stated position in the list
->>>>>>> d3421dd2965318d5c633a406d0acae7e9810e8c6
 	struct node *temp, *temp2;
 	struct node *newNode = (struct node*)malloc(sizeof(struct node));
 	temp = head;
@@ -82,7 +74,6 @@ struct node * addAfterPos(struct node * head, int data, int position) {				//Add
 	return head;
 }
 
-<<<<<<< HEAD
 struct node *createList(struct node *head) {
 	int data, i, n;
 	
@@ -111,9 +102,6 @@ void displayNodes(struct node * head) {
 	}
 	else {
 	printf("\n\nNodes in doubly linked list are:\n\n");
-=======
-void displayNodes(struct node * head) {								//Prints the linked list
->>>>>>> d3421dd2965318d5c633a406d0acae7e9810e8c6
 	struct node * ptr;
 	ptr = head;
 	while(ptr!=NULL) {
@@ -124,7 +112,6 @@ void displayNodes(struct node * head) {								//Prints the linked list
 	printf("\n\n");
 }
 
-<<<<<<< HEAD
 int main() {
 	struct node* head = NULL;
 	int choice, data, pos;	
@@ -165,24 +152,5 @@ start:
 	}
 goto start;
 	return 0;
-=======
-int main() {				//Samples
-	struct node *head = (struct node*)malloc(sizeof(struct node));
-	head = addToEmpty(head, 25);
-	head = addToEnd(head, 34);
-	head = addToEnd(head, 14);
-	head = addToEnd(head, 50);
-	
-	displayNodes(head);
-	
-	printf("\n\nAdding items to beginning...\n\n");
-	
-	head = addToBeg(head, 100);
-	head = addToBeg(head, 200);
-	head = addToBeg(head, 300);
-	head = addToBeg(head, 400);
-	
-	displayNodes(head);
->>>>>>> d3421dd2965318d5c633a406d0acae7e9810e8c6
 }
 
