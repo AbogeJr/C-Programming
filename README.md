@@ -1,5 +1,5 @@
 # C-Programming
-### Documentation of some of my beginner C projects (⌐■_■). (Emphasis on Data Structures & Algorithms)
+### Documentation of some of my beginner C projects. (Emphasis on Data Structures & Algorithms)
 
 #### 1.Recursion
 ###### FactFib console Application
