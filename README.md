@@ -31,4 +31,6 @@
   * Add node to beginning/end of list.
   * Display/Print linked list.
   * Count number of nodes in list.
-  * Add node to specified position.   
+  * Add node to specified position.
+  * Reverse the linked list
+  * Delete a node from specified position   
