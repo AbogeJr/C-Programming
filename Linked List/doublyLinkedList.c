@@ -113,6 +113,42 @@ struct node *reverse_list(struct node *head) {     //Reverses the nodes of the l
 	return head;
 }
 
+struct node * delete_node (struct node *head, int pos) {		//This took an hour, and  I'm proud of myself!
+	struct node *temp, *temp2;
+	int position = pos;
+	temp = head;
+	
+	if(head == NULL) {
+		printf("\nList is already Empty!\n");
+	}
+	else if(pos == 1) {
+		head = head->next;
+		free(head->prev);
+		head->prev=NULL;
+	}
+	else{
+	while(pos>1) {
+		temp = temp->next;
+		pos--;
+	}
+	if(temp->next==NULL){
+		temp2 = temp->prev;
+		temp2->next=NULL;
+		free(temp);
+		temp = NULL;
+	}
+	else{
+	temp2 = temp->prev;
+	temp2->next=temp->next;
+	temp->next->prev=temp2;
+	free(temp);
+	temp = NULL;
+	}
+}
+	printf("\nNode %d deleted!\n", position);
+	return head;
+}
+
 void displayNodes(struct node * head) {	   //Prints the data of the nodes in the list
 	if(head==NULL) {
 		printf("No Nodes detected!\n\n");
@@ -134,7 +170,7 @@ int main() {
 	int choice, data, pos;	
 	printf("###Doubly linked list generator###\n\n");
 start:	
-	printf("Select a function:\n1.Create List\n2.Add to beginning\n3.Add to end\n4.Add after position\n5.Display Nodes\n6.Reverse list\n7.Exit\n\n");
+	printf("Select a function:\n1.Create List\n2.Add to beginning\n3.Add to end\n4.Add after position\n5.Display Nodes\n6.Reverse list\n7.Delete node\n8.Exit\n\n");
 	scanf("%d",&choice);
 	switch(choice) {
 		case 1:
@@ -164,8 +200,13 @@ start:
 		case 6:
 			head = reverse_list(head);
 			printf("\n\nList reversed\n\n");
-			break;	
+			break;
 		case 7:
+			printf("\nEnter position to be deleted:\n");
+			scanf("%d",&pos);
+			head = delete_node(head,pos);
+			break;		
+		case 8:
 			exit(0);	
 		default:
 			printf("\nINVALID CHOICE!\n\n");
