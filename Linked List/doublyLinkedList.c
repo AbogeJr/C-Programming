@@ -96,6 +96,23 @@ struct node *createList(struct node *head) {	//Intergrates addToEmpty() and addT
 	return head;
 }
 
+struct node *reverse_list(struct node *head) {     //Reverses the nodes of the linked list
+	struct node * ptr1 = head;
+	struct node * ptr2 = ptr1->next;
+	
+	ptr1->next = NULL;
+	ptr1->prev = ptr2;
+	
+	 while(ptr2!=NULL) {
+	 	ptr2->prev = ptr2->next;
+		ptr2->next = ptr1;
+		ptr1 = ptr2; 
+		ptr2 = ptr2->prev;
+	 }
+	head = ptr1;
+	return head;
+}
+
 void displayNodes(struct node * head) {	   //Prints the data of the nodes in the list
 	if(head==NULL) {
 		printf("No Nodes detected!\n\n");
@@ -117,7 +134,7 @@ int main() {
 	int choice, data, pos;	
 	printf("###Doubly linked list generator###\n\n");
 start:	
-	printf("Select a function:\n1.Create List\n2.Add to beginning\n3.Add to end\n4.Add after position\n5.Display Nodes\n6.Exit\n\n");
+	printf("Select a function:\n1.Create List\n2.Add to beginning\n3.Add to end\n4.Add after position\n5.Display Nodes\n6.Reverse list\n7.Exit\n\n");
 	scanf("%d",&choice);
 	switch(choice) {
 		case 1:
@@ -145,6 +162,10 @@ start:
 			displayNodes(head);
 			break;
 		case 6:
+			head = reverse_list(head);
+			printf("\n\nList reversed\n\n");
+			break;	
+		case 7:
 			exit(0);	
 		default:
 			printf("\nINVALID CHOICE!\n\n");
