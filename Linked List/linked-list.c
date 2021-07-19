@@ -18,13 +18,15 @@ struct node * add_to_beg(int node_data, struct node * head);
 
 struct node * add_after_pos(int node_data, int pos, struct node * head);
 
+struct node * reverse_list(struct node * head);
+
 struct node * create_list(struct node* head);
 
 int main() {
 	int choice, data, pos;
 	struct node *head = NULL;
 start:	
-	printf("\n\nSelect a function:\n1.Create List\n2.Add node to beginning\n3.Add node to end\n4.Add node after position\n5.Print data\n6.Exit\n\n");
+	printf("\n\nSelect a function:\n1.Create List\n2.Add node to beginning\n3.Add node to end\n4.Add node after position\n5.Print data\n6.Reverse list\n7.Exit\n\n");
 	scanf("%d",&choice);
 	
 	switch(choice) {
@@ -54,6 +56,9 @@ start:
 			print_data(head);
 			break;
 		case 6:
+			head = reverse_list(head);	
+			break;
+		case 7:
 			exit(0);
 			break;
 		default:
@@ -140,6 +145,22 @@ struct node * add_after_pos(int node_data, int pos, struct node * head) {
 	ptr->next=temp;
 	temp->next=ptr2;
 	return head;	
+}
+
+struct node * reverse_list(struct node * head) {
+	struct node *ptr1 = NULL, *ptr2 = NULL;
+	
+	while(head!=NULL) {
+		ptr2 = head-> next;
+		head -> next = ptr1;
+		ptr1 = head;
+		head = ptr2;
+	}
+	 head = ptr1;
+	
+	printf("\n\nList Reversed!\n\n");
+	
+	return head;
 }
 
 struct node * create_list(struct node* head) {
