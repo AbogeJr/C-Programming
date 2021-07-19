@@ -20,13 +20,15 @@ struct node * add_after_pos(int node_data, int pos, struct node * head);
 
 struct node * reverse_list(struct node * head);
 
+void del_pos(struct node **head, int pos);
+
 struct node * create_list(struct node* head);
 
 int main() {
 	int choice, data, pos;
 	struct node *head = NULL;
 start:	
-	printf("\n\nSelect a function:\n1.Create List\n2.Add node to beginning\n3.Add node to end\n4.Add node after position\n5.Print data\n6.Reverse list\n7.Exit\n\n");
+	printf("\n\nSelect a function:\n1.Create List\n2.Add node to beginning\n3.Add node to end\n4.Add node after position\n5.Print data\n6.Reverse list\n7.Delete node at position\n8.Exit\n\n");
 	scanf("%d",&choice);
 	
 	switch(choice) {
@@ -59,6 +61,11 @@ start:
 			head = reverse_list(head);	
 			break;
 		case 7:
+			printf("\nEnter position to be deleted:\n");
+			scanf("%d",&pos);
+			del_pos(&head,pos);
+			break;	
+		case 8:
 			exit(0);
 			break;
 		default:
@@ -161,6 +168,32 @@ struct node * reverse_list(struct node * head) {
 	printf("\n\nList Reversed!\n\n");
 	
 	return head;
+}
+
+void del_pos(struct node **head, int pos) {
+	int position = pos;
+	struct node * current = *head;
+	struct node * previous = *head;
+	
+	if(*head == NULL) {
+		printf("List is Empty!");
+	}
+	else if(pos == 1) {
+		*head = current->next;
+		free(current);
+		current = NULL;
+	}
+	else {
+		while(pos!=1) {
+			previous = current;
+			current = current -> next;
+			pos--;
+		}
+		previous->next = current->next;
+		free(current);
+		current = NULL;
+		printf("\nNode %d deleted!\n",position);
+	}
 }
 
 struct node * create_list(struct node* head) {
