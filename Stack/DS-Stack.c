@@ -2,10 +2,6 @@
 #include <stdlib.h>
 #define CAPACITY 5 //macro definition
 //Stack data structure implementation in C
-//pop()Deletes top element in stack
-//push()Adds element to top of stack
-//peek()Checks top element of stack
-//traverse()Displays all elements of stack
 
 int stack[CAPACITY];
 int top=-1;  //used to indicate stack item index
@@ -46,6 +42,7 @@ void traverse(int *data) {	//displays items in the stack
 
 int main() {
 	int choice, elem;
+start:	
 	printf("Select an option:\n1. push()\n2 .pop()\n3. peek()\n4. Traverse()\n5. Exit\n\n");
 	scanf("%d",&choice);
 	
@@ -94,6 +91,6 @@ int main() {
 		default:
 			printf("Invalid choice!");			    
 	}
-	main();
+goto start;
 	return 0;
 }
