@@ -7,7 +7,7 @@ int stack[CAPACITY];
 int top=-1;  //used to indicate stack item index
 
 int isFull(int *data) { //checks whether the stack is full (with respect to it's capacity)
-	if(top>=CAPACITY)
+	if(top>=CAPACITY-1)
 		return 1;
 	else
 		return 0;	
@@ -36,7 +36,7 @@ int peek() {	//returns item on top of stack
 void traverse(int *data) {	//displays items in the stack
 	int i;
 	for(i=top;i>=0;i--) {
-		printf("\n%d\n",stack[i]);
+		printf("[%d]= %d\n",i,stack[i]);
 	}
 }
 
@@ -63,9 +63,9 @@ start:
 	    		printf("Stack is empty!\nCannot pop!\n\n");
 			}
 	    	else{
-			printf("Whats poppin... (¬¦_¦):\n");
+			printf("Whats poppin... :\n");
 			pop();
-			printf("Popped value!\n\n");
+			printf("Your value!\n\n");
 			}
 	        break;
 	        
